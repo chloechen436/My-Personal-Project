@@ -44,6 +44,5 @@ public class PlayerController : MonoBehaviour
         // Player can move left and right
         float horizontalInput = Input.GetAxis("Horizontal");
         playerRb.AddForce(Vector3.right * speed * horizontalInput);
-
-    }
+}
 }
