@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public bool isOnGround = true;
     public bool gameOver;
 
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -44,5 +45,7 @@ public class PlayerController : MonoBehaviour
         // Player can move left and right
         float horizontalInput = Input.GetAxis("Horizontal");
         playerRb.AddForce(Vector3.right * speed * horizontalInput);
-}
+        
+
+    }
 }
