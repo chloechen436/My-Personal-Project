@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerControllerx : MonoBehaviour
 {
-    private float speed = 10.0f;
+    public float speed = 10.0f;
     private Rigidbody playerRb;
     public float xRange = 10.0f;
     public float gravityModifier;
@@ -55,7 +55,21 @@ public class PlayerControllerx : MonoBehaviour
         {
             jumpCount = 0;
         }
-        
+    
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+         Debug.Log("Player has collided with enemy.");
+        }
     }
+   
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Powerup"))
+        {
+             Destroy(other.gameObject);
+        }
+    }
+
+    
 }
     
