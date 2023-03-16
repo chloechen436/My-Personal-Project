@@ -829,7 +829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xRange: 10
   gravityModifier: 0
-  jumpForce: 10
+  jumpForce: 7
   maxJumps: 50
 --- !u!1 &2052018085
 GameObject:
