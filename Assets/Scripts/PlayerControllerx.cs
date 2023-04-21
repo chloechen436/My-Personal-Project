@@ -1,23 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 
 public class PlayerControllerx : MonoBehaviour
 {
     public float speed = 10.0f;
+    public TextMeshProUGUI scoreText;
+    private int score;
     private Rigidbody playerRb;
     public float xRange = 10.0f;
     public float gravityModifier;
 
     public float jumpForce = 10f; 
     public int maxJumps = 50; 
-    private int jumpCount = 0; 
+    private int jumpCount = 0;
+
 
     private Rigidbody rb;
 
     void Start()
     {
+       
+        score = 0;
+        scoreText.text = "Score:" + score;
+
         rb = GetComponent<Rigidbody>();
         playerRb = GetComponent<Rigidbody>();
     }
