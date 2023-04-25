@@ -78,6 +78,10 @@ public class PlayerControllerx : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
+        if (other.gameObject.CompareTag("Good Topping"))
+        {
+            Destroy(other.gameObject);
+        }
     }
     
 }
