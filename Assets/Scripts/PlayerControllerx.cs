@@ -60,16 +60,25 @@ public class PlayerControllerx : MonoBehaviour
         {
          Debug.Log("Player has collided with enemy.");
         }
-    }
-   
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("Powerup"))
+
+        if (collision.gameObject.CompareTag("Good Topping"))
         {
-             Destroy(other.gameObject);
+            Debug.Log("Player has collided with Good Topping.");
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Powerup"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
     
 }
     
