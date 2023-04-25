@@ -43,16 +43,22 @@ public class PlayerControllerx : MonoBehaviour
         playerRb.AddForce(Vector3.right * speed * horizontalInput);
     }
 
+        // Jump Controls
     private void Jump()
     {
-        rb.velocity = new Vector3(rb.velocity.x, jumpForce);
-        jumpCount++;
+        if (jumpCount == 0)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, jumpForce);
+            jumpCount++;
+        }
+        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
+            Debug.Log("Resetting jumps to 0.");
             jumpCount = 0;
         }
     
@@ -67,6 +73,7 @@ public class PlayerControllerx : MonoBehaviour
         }
     }
 
+       // Prefabs are destroyed on collision
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
