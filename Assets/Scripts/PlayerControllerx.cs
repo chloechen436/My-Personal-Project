@@ -14,6 +14,11 @@ public class PlayerControllerx : MonoBehaviour
     public int maxJumps = 50; 
     private int jumpCount = 0; 
 
+    private AudioSource playerAudio;
+
+    public AudioClip goodToppingSound;
+    public AudioClip badToppingSound;
+
     private Rigidbody rb;
 
     void Start()
