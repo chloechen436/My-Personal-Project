@@ -14,12 +14,12 @@ public class PlayerControllerx : MonoBehaviour
     public int maxJumps = 50; 
     private int jumpCount = 0; 
 
-    private AudioSource playerAudio;
+    public AudioSource playerAudio;
 
-    public AudioClip goodToppingSound;
-    public AudioClip badToppingSound;
-    public AudioClip gameEndSound;
-    public AudioClip gameStartSound;
+    public AudioClip goodTopping;
+    public AudioClip badTopping;
+    public AudioClip gameEnd;
+    public AudioClip gameStart;
 
     private Rigidbody rb;
 
@@ -50,16 +50,22 @@ public class PlayerControllerx : MonoBehaviour
         playerRb.AddForce(Vector3.right * speed * horizontalInput);
     }
 
+        // Jump Controls
     private void Jump()
     {
-        rb.velocity = new Vector3(rb.velocity.x, jumpForce);
-        jumpCount++;
+        if (jumpCount == 0)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, jumpForce);
+            jumpCount++;
+        }
+        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
+            Debug.Log("Resetting jumps to 0.");
             jumpCount = 0;
         }
     
@@ -67,24 +73,36 @@ public class PlayerControllerx : MonoBehaviour
         {
          Debug.Log("Player has collided with enemy.");
         }
-    }
-   
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("Powerup"))
+
+        if (collision.gameObject.CompareTag("Good Topping"))
         {
-             Destroy(other.gameObject);
+            Debug.Log("Player has collided with Good Topping.");
         }
     }
     public class PlaySoundOnCollision : MonoBehaviour {
         public AudioClip goodToppingSound;
 
-        void OnCollisionEnter(Collision collision) {
-            if (collision.gameObject.tag == "Enemy1") {
-                AudioSource.PlayClipAtPoint(goodToppingSound, transform.position);
-            }
+
+       // Prefabs are destroyed on collision
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            playerAudio.PlayOneShot(badTopping, 1.0f);
+            Destroy(other.gameObject);
         }
+
+        if (other.gameObject.CompareTag("Powerup"))
+        {
+            Destroy(other.gameObject);
+        }
+        if (other.gameObject.CompareTag("Good Topping"))
+        {
+            Destroy(other.gameObject);
     }
     
+ }
+    }
 }
+
     
