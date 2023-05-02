@@ -9,6 +9,7 @@ public class PlayerControllerx : MonoBehaviour
     private Rigidbody playerRb;
     public float xRange = 10.0f;
     public float gravityModifier;
+    public ParticleSystem fireworkParticle;
 
     public float jumpForce = 10f; 
     public int maxJumps = 50; 
