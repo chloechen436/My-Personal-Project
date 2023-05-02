@@ -18,6 +18,8 @@ public class PlayerControllerx : MonoBehaviour
 
     public AudioClip goodToppingSound;
     public AudioClip badToppingSound;
+    public AudioClip gameEndSound;
+    public AudioClip gameStartSound;
 
     private Rigidbody rb;
 
@@ -74,7 +76,15 @@ public class PlayerControllerx : MonoBehaviour
              Destroy(other.gameObject);
         }
     }
+    public class PlaySoundOnCollision : MonoBehaviour {
+        public AudioClip goodToppingSound;
 
+        void OnCollisionEnter(Collision collision) {
+            if (collision.gameObject.tag == "Enemy1") {
+                AudioSource.PlayClipAtPoint(goodToppingSound, transform.position);
+            }
+        }
+    }
     
 }
     
