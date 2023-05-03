@@ -71,16 +71,20 @@ public class PlayerControllerx : MonoBehaviour
     
         if(collision.gameObject.CompareTag("Enemy"))
         {
-         Debug.Log("Player has collided with enemy.");
+            Debug.Log("Player has collided with enemy.");
+            //just guessing you might want the game ends sound here
+            playerAudio.PlayOneShot(gameEnd);
         }
 
         if (collision.gameObject.CompareTag("Good Topping"))
         {
             Debug.Log("Player has collided with Good Topping.");
+            //try the sound here
+            playerAudio.PlayOneShot(goodTopping);
         }
+
+        //I don't see any bad topping prefabs or else I would add the sound for the bad topping collisions
     }
-    public class PlaySoundOnCollision : MonoBehaviour {
-        public AudioClip goodToppingSound;
 
 
        // Prefabs are destroyed on collision
@@ -88,7 +92,6 @@ public class PlayerControllerx : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            playerAudio.PlayOneShot(badTopping, 1.0f);
             Destroy(other.gameObject);
         }
 
@@ -99,9 +102,9 @@ public class PlayerControllerx : MonoBehaviour
         if (other.gameObject.CompareTag("Good Topping"))
         {
             Destroy(other.gameObject);
-    }
+        }
     
- }
+    
     }
 }
 
