@@ -6,13 +6,15 @@ using UnityEngine;
 public class PlayerControllerx : MonoBehaviour
 {
     public float speed = 10.0f;
-    private Rigidbody playerRb;
     public float xRange = 10.0f;
     public float gravityModifier;
+    //public GameObject fireworkparticlePrefab;
     public ParticleSystem fireworkParticle;
-
     public float jumpForce = 10f; 
-    public int maxJumps = 50; 
+    public int maxJumps = 50;
+
+    private Rigidbody playerRb;
+    private Rigidbody rb;
     private int jumpCount = 0; 
 
     private AudioSource playerAudio;
@@ -20,7 +22,8 @@ public class PlayerControllerx : MonoBehaviour
     public AudioClip goodToppingSound;
     public AudioClip badToppingSound;
 
-    private Rigidbody rb;
+    public bool isOnGround = true;
+    public bool gameOver;
 
     void Start()
     {
@@ -33,6 +36,7 @@ public class PlayerControllerx : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumps)
         {
             Jump();
+            isOnGround = false;
         }
         // Keep player in bounds
         if (transform.position.x < -xRange)
@@ -47,6 +51,11 @@ public class PlayerControllerx : MonoBehaviour
         // Player can move left and right
         float horizontalInput = Input.GetAxis("Horizontal");
         playerRb.AddForce(Vector3.right * speed * horizontalInput);
+
+        /*if (Input.GetKeyDown(KeyCode.Space) && isOnGround && !gameOver)
+        {
+            isOnGround = false;
+        }*/
     }
 
         // Jump Controls
@@ -62,10 +71,12 @@ public class PlayerControllerx : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
         if (collision.gameObject.CompareTag("Ground"))
         {
             Debug.Log("Resetting jumps to 0.");
             jumpCount = 0;
+            isOnGround = true;
         }
     
         if(collision.gameObject.CompareTag("Enemy"))
@@ -76,6 +87,11 @@ public class PlayerControllerx : MonoBehaviour
         if (collision.gameObject.CompareTag("Good Topping"))
         {
             Debug.Log("Player has collided with Good Topping.");
+        }
+
+        if (collision.gameObject.CompareTag("Powerup"))
+        {
+            fireworkParticle.Play();
         }
     }
 
@@ -96,6 +112,6 @@ public class PlayerControllerx : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
-    
+
 }
     
