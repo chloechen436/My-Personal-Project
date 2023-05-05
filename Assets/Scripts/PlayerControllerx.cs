@@ -91,8 +91,8 @@ public class PlayerControllerx : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Powerup"))
         {
-            //Debug.Log("Firework Particles should play");
-            //fireworkParticle.Play();
+            Debug.Log("Firework Particles should play");
+            fireworkParticle.Play();
         }
     }
 
