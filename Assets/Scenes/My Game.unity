@@ -1007,7 +1007,7 @@ MonoBehaviour:
   speed: 6
   xRange: 10
   gravityModifier: 0
-  jumpForce: 7
+  jumpForce: 7.5
   maxJumps: 50
   goodToppingSound: {fileID: 0}
   badToppingSound: {fileID: 0}
