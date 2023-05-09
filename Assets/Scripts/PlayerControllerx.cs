@@ -20,6 +20,7 @@ public class PlayerControllerx : MonoBehaviour
     public AudioClip badTopping;
     public AudioClip gameEnd;
     public AudioClip gameStart;
+    public AudioClip powerUp;
 
     private Rigidbody rb;
 
