@@ -71,9 +71,9 @@ public class PlayerControllerx : MonoBehaviour
     
         if(collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Player has collided with enemy.");
-            //just guessing you might want the game ends sound here
-            playerAudio.PlayOneShot(gameEnd);
+            Debug.Log("Player has collided with Enemy.");
+            //try the sound here
+            playerAudio.PlayOneShot(badTopping);
         }
 
         if (collision.gameObject.CompareTag("Good Topping"))
@@ -81,6 +81,13 @@ public class PlayerControllerx : MonoBehaviour
             Debug.Log("Player has collided with Good Topping.");
             //try the sound here
             playerAudio.PlayOneShot(goodTopping);
+        }
+
+        if(collision.gameObject.CompareTag("Powerup"))
+        {
+            Debug.Log("Player has collided with Powerup.");
+            //try the sound here
+            playerAudio.PlayOneShot(powerUp);
         }
 
         //I don't see any bad topping prefabs or else I would add the sound for the bad topping collisions
