@@ -1140,8 +1140,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 7057032996917443572, guid: 952dbc90d7b984be58e77e3b22df3bca, type: 3}
-  - {fileID: 1646562720895719048, guid: 35eb8061a55544e8a9af9c30b1a71127, type: 3}
-  - {fileID: 1736316674024927605, guid: 4ff56e15d5ad64866bfec3e345663517, type: 3}
+  - {fileID: 6322100022750222007, guid: 53aeb147d533f40c7a9472a77666a613, type: 3}
+  - {fileID: 6301613657105741309, guid: 2b74bd9db79994906890b0053f9a618c, type: 3}
   powerup: {fileID: 4813754448064519155, guid: 55314e4b8cec540ea915f78c49466e55, type: 3}
   goodtoppings:
   - {fileID: 4555648330093767792, guid: d1b465a6544524e129c2cb57e5b0aa85, type: 3}
