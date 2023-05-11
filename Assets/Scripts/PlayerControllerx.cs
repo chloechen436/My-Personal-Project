@@ -14,10 +14,12 @@ public class PlayerControllerx : MonoBehaviour
     public int maxJumps = 50; 
     private int jumpCount = 0; 
 
-    private AudioSource playerAudio;
+    public AudioSource playerAudio;
 
     public AudioClip goodToppingSound;
     public AudioClip badToppingSound;
+
+    public AudioClip powerupSound;
 
     private Rigidbody rb;
 
@@ -58,12 +60,12 @@ public class PlayerControllerx : MonoBehaviour
         }
         
     }
-
+/*
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            Debug.Log("Resetting jumps to 0.");
+            //Debug.Log("Resetting jumps to 0.");
             jumpCount = 0;
         }
     
@@ -77,22 +79,33 @@ public class PlayerControllerx : MonoBehaviour
             Debug.Log("Player has collided with Good Topping.");
         }
     }
-
+*/
        // Prefabs are destroyed on collision
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+            playerAudio.PlayOneShot(badToppingSound);
             Destroy(other.gameObject);
         }
 
         if (other.gameObject.CompareTag("Powerup"))
         {
+            //change goodToppingSound to your powerup sound
+            playerAudio.PlayOneShot(goodToppingSound);
             Destroy(other.gameObject);
+
         }
         if (other.gameObject.CompareTag("Good Topping"))
         {
+            playerAudio.PlayOneShot(goodToppingSound);
             Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            Debug.Log("Resetting jumps to 0.");
+            jumpCount = 0;
         }
     }
     

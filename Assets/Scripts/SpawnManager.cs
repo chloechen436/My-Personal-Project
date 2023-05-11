@@ -36,7 +36,7 @@ public class SpawnManager : MonoBehaviour
     void SpawnRandomEnemy()
     {
          float randomX = Random.Range(-xSpawnRange, xSpawnRange);
-         int randomIndex = Random.Range(0, enemies.Length -1);
+         int randomIndex = Random.Range(0, enemies.Length);
 
          Vector3 spawnPos = new Vector3(randomX, ySpawn, zEnemySpawn);
 
@@ -58,7 +58,7 @@ public class SpawnManager : MonoBehaviour
         if (goodtoppings != null && goodtoppings.Length > 0)
         {
             float randomX = Random.Range(-xSpawnRange, xSpawnRange);
-            int randomIndex = Random.Range(0, goodtoppings.Length - 1);
+            int randomIndex = Random.Range(0, goodtoppings.Length);
 
             Vector3 spawnPos = new Vector3(randomX, ySpawn, zGoodToppingSpawn);
 
