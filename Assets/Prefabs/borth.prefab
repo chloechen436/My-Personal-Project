@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2824171039946248626}
   m_Layer: 0
   m_Name: borth
-  m_TagString: Enemy
+  m_TagString: Good Topping
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
