@@ -349,12 +349,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 4555648330093767792, guid: d1b465a6544524e129c2cb57e5b0aa85, type: 3}
-  - {fileID: 1736316674024927605, guid: 4ff56e15d5ad64866bfec3e345663517, type: 3}
+  - {fileID: 7057032996917443572, guid: 952dbc90d7b984be58e77e3b22df3bca, type: 3}
+  - {fileID: 6322100022750222007, guid: 53aeb147d533f40c7a9472a77666a613, type: 3}
+  - {fileID: 8606584711658296107, guid: a404694a036f046ea9e6de9e4b773123, type: 3}
   powerup: {fileID: 4813754448064519155, guid: 55314e4b8cec540ea915f78c49466e55, type: 3}
   goodtoppings:
-  - {fileID: 7057032996917443572, guid: 952dbc90d7b984be58e77e3b22df3bca, type: 3}
-  - {fileID: 233407986249669033, guid: 4aacd596ef7ce4dcca9224be1a9a6867, type: 3}
+  - {fileID: 4555648330093767792, guid: d1b465a6544524e129c2cb57e5b0aa85, type: 3}
+  - {fileID: 6301613657105741309, guid: 2b74bd9db79994906890b0053f9a618c, type: 3}
+  - {fileID: 8325293966380766951, guid: 1cc45fb7cf03146c599004f129e2d742, type: 3}
 --- !u!4 &919557689
 Transform:
   m_ObjectHideFlags: 0
@@ -952,8 +954,10 @@ MonoBehaviour:
   gravityModifier: 0
   jumpForce: 7
   maxJumps: 50
-  goodToppingSound: {fileID: 0}
-  badToppingSound: {fileID: 0}
+  playerAudio: {fileID: 0}
+  goodToppingSound: {fileID: 8300000, guid: 466c9bd0ee415444aab02dbcc52d76fe, type: 3}
+  badToppingSound: {fileID: 8300000, guid: 4e653b12b72984de0a07ab5b75ca6ffe, type: 3}
+  powerupSound: {fileID: 0}
 --- !u!65 &1653633169
 BoxCollider:
   m_ObjectHideFlags: 0
