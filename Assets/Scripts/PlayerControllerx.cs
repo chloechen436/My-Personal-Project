@@ -16,11 +16,10 @@ public class PlayerControllerx : MonoBehaviour
 
     public AudioSource playerAudio;
 
-    public AudioClip goodTopping;
-    public AudioClip badTopping;
-    public AudioClip gameEnd;
-    public AudioClip gameStart;
-    public AudioClip powerUp;
+    public AudioClip goodToppingSound;
+    public AudioClip badToppingSound;
+
+    public AudioClip powerupSound;
 
     private Rigidbody rb;
 
@@ -61,59 +60,54 @@ public class PlayerControllerx : MonoBehaviour
         }
         
     }
-
+/*
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            Debug.Log("Resetting jumps to 0.");
+            //Debug.Log("Resetting jumps to 0.");
             jumpCount = 0;
         }
     
         if(collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Player has collided with Enemy.");
-            //try the sound here
-            playerAudio.PlayOneShot(badTopping);
+         Debug.Log("Player has collided with enemy.");
         }
 
         if (collision.gameObject.CompareTag("Good Topping"))
         {
             Debug.Log("Player has collided with Good Topping.");
-            //try the sound here
-            playerAudio.PlayOneShot(goodTopping);
         }
-
-        if(collision.gameObject.CompareTag("Powerup"))
-        {
-            Debug.Log("Player has collided with Powerup.");
-            //try the sound here
-            playerAudio.PlayOneShot(powerUp);
-        }
-
-        //I don't see any bad topping prefabs or else I would add the sound for the bad topping collisions
     }
-
-
+*/
        // Prefabs are destroyed on collision
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+            playerAudio.PlayOneShot(badToppingSound);
             Destroy(other.gameObject);
         }
 
         if (other.gameObject.CompareTag("Powerup"))
         {
+            //change goodToppingSound to your powerup sound
+            playerAudio.PlayOneShot(goodToppingSound);
             Destroy(other.gameObject);
+
         }
         if (other.gameObject.CompareTag("Good Topping"))
         {
+            playerAudio.PlayOneShot(goodToppingSound);
             Destroy(other.gameObject);
         }
-    
-    
-    }
-}
 
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            Debug.Log("Resetting jumps to 0.");
+            jumpCount = 0;
+        }
+    }
+    
+}
     
