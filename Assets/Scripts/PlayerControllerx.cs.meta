@@ -4,8 +4,10 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
+  - playerAudio: {instanceID: 0}
   - goodToppingSound: {fileID: 8300000, guid: 466c9bd0ee415444aab02dbcc52d76fe, type: 3}
   - badToppingSound: {fileID: 8300000, guid: 4e653b12b72984de0a07ab5b75ca6ffe, type: 3}
+  - powerUpSound: {fileID: 8300000, guid: fcc942d7f7c3143fd8f967087f1d7ade, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
