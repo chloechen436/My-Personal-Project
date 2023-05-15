@@ -1013,7 +1013,7 @@ MonoBehaviour:
   playerAudio: {fileID: 1294485866}
   goodToppingSound: {fileID: 8300000, guid: 466c9bd0ee415444aab02dbcc52d76fe, type: 3}
   badToppingSound: {fileID: 8300000, guid: 4e653b12b72984de0a07ab5b75ca6ffe, type: 3}
-  powerUpSound: {fileID: 8300000, guid: 9ee2ca2c04fde4e88977b0a0698dac8e, type: 3}
+  powerUpSound: {fileID: 8300000, guid: 208509713658b481aac18f195b9e8824, type: 3}
 --- !u!82 &1294485866
 AudioSource:
   m_ObjectHideFlags: 0
