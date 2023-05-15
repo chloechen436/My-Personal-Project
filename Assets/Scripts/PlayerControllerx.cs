@@ -19,7 +19,7 @@ public class PlayerControllerx : MonoBehaviour
     public AudioClip goodToppingSound;
     public AudioClip badToppingSound;
 
-    public AudioClip powerupSound;
+    public AudioClip powerUpSound;
 
     private Rigidbody rb;
 
@@ -91,8 +91,7 @@ public class PlayerControllerx : MonoBehaviour
 
         if (other.gameObject.CompareTag("Powerup"))
         {
-            //change goodToppingSound to your powerup sound
-            playerAudio.PlayOneShot(goodToppingSound);
+            playerAudio.PlayOneShot(powerUpSound);
             Destroy(other.gameObject);
 
         }
