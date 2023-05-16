@@ -957,7 +957,7 @@ MonoBehaviour:
   playerAudio: {fileID: 0}
   goodToppingSound: {fileID: 8300000, guid: 466c9bd0ee415444aab02dbcc52d76fe, type: 3}
   badToppingSound: {fileID: 8300000, guid: 4e653b12b72984de0a07ab5b75ca6ffe, type: 3}
-  powerupSound: {fileID: 0}
+  powerUpSound: {fileID: 0}
 --- !u!65 &1653633169
 BoxCollider:
   m_ObjectHideFlags: 0
