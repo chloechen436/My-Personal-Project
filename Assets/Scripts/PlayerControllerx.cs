@@ -23,10 +23,18 @@ public class PlayerControllerx : MonoBehaviour
 
     private Rigidbody rb;
 
+    ParticleSystem comicParticleSystem;
+    public ParticleSystem comicParticle;
+    float storedDuration;
+    
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         playerRb = GetComponent<Rigidbody>();
+
+        comicParticle = GetComponent<ParticleSystem>();
+        storedDuration = comicParticle.main.duration;
     }
 
     void Update()
@@ -60,7 +68,7 @@ public class PlayerControllerx : MonoBehaviour
         }
         
     }
-/*
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -72,6 +80,7 @@ public class PlayerControllerx : MonoBehaviour
         if(collision.gameObject.CompareTag("Enemy"))
         {
          Debug.Log("Player has collided with enemy.");
+         comicParticle.Play();
         }
 
         if (collision.gameObject.CompareTag("Good Topping"))
@@ -79,27 +88,27 @@ public class PlayerControllerx : MonoBehaviour
             Debug.Log("Player has collided with Good Topping.");
         }
     }
-*/
+
        // Prefabs are destroyed on collision
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
             playerAudio.PlayOneShot(badToppingSound);
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
         }
 
         if (other.gameObject.CompareTag("Powerup"))
         {
             //change goodToppingSound to your powerup sound
             playerAudio.PlayOneShot(goodToppingSound);
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
 
         }
         if (other.gameObject.CompareTag("Good Topping"))
         {
             playerAudio.PlayOneShot(goodToppingSound);
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
         }
 
         if (other.gameObject.CompareTag("Ground"))
@@ -108,6 +117,15 @@ public class PlayerControllerx : MonoBehaviour
             jumpCount = 0;
         }
     }
-    
+
+    void DestroyParticleSystem()
+    {
+        Destroy(comicParticle.gameObject);
+    }
+
+    void AccessDestroyedParticleSystem()
+    {
+        Debug.Log("Stored Duration: " + storedDuration);
+    }
 }
     
